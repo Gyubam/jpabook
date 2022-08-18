@@ -1,5 +1,6 @@
 package jpabook;
 
+import jpabook.jpashop.domain.Book;
 import jpabook.jpashop.domain.Order;
 
 import javax.persistence.EntityManager;
@@ -21,8 +22,10 @@ public class JpaMain {
 
         try {
 
-            Order order = new Order();
-
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("저자");
+            em.persist(book);
             tx.commit();
         } catch (Exception e){
             tx.rollback();
